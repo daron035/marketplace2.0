@@ -50,10 +50,11 @@ class Variation(models.Model):
     VARIATION_CHOICES = (
         ("size", "size"),
         ("color", "color"),
+        ("images", "images"),
     )
     # change to choices
     # name = models.CharField(max_length=50)  # size, colour
-    name = models.CharField(choices=VARIATION_CHOICES, default="size", max_length=5)
+    name = models.CharField(choices=VARIATION_CHOICES, default="size", max_length=6)
 
     class Meta:
         unique_together = ("item", "name")
@@ -73,7 +74,10 @@ class ItemVariation(models.Model):
     def __str__(self):
         return self.value
 
-
+# class Stock(models.Model):
+#     # test = models.BooleanField(default=False, null=True)
+#     pass
+# class OrderItem(Stock):
 class OrderItem(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     ordered = models.BooleanField(default=False)

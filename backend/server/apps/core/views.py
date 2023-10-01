@@ -88,7 +88,7 @@ class AddToCartView(APIView):
             #     return Response(status=HTTP_200_OK)
             if not order.items.filter(item__id=order_item.id).exists():
                 order.items.add(order_item)
-            return Response(status=HTTP_200_OK)
+                return Response(status=HTTP_200_OK)
             #
         else:
             ordered_date = timezone.now()
