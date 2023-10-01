@@ -42,6 +42,7 @@ const ProductDetail = ({ fetchCart }) => {
 
   const handleChange = (e, {name, value}) => {
     setFormData({...formData, [name]: value, })
+    console.log(formData)
     console.log(name)
     console.log(value)
   }
@@ -61,6 +62,7 @@ const ProductDetail = ({ fetchCart }) => {
 
   const handleFormatData = formData => {
     return Object.keys(formData).map(key => {
+      console.log(formData[key])
       return formData[key];
     })
   }
@@ -73,7 +75,7 @@ const ProductDetail = ({ fetchCart }) => {
       },
     };
     const variations = handleFormatData(formData)
-    console.log(variations)
+    console.log("variations", variations) // array [5,3]
     const body = { slug, variations };
     await axios
       .post(`${process.env.REACT_APP_API_URL}/api/add-to-cart/`, body, config)

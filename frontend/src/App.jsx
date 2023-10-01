@@ -1,5 +1,6 @@
 // import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import "./index.css";
+import styles from "./index.module.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Layout from "./hocs/Layout";
@@ -26,7 +27,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />}>
-            <Route index element={<ProductList />} />
+            {/* <Route index element={<ProductList />} /> */}
             <Route path="/products/:productID" element={<ProductDetail />} />
             <Route path="/order-summary" element={<OrderSummary />} />
             <Route path="/checkout" element={<CheckoutForm />} />
